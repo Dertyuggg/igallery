@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>DHYANESHWAR S</title>
+        <style>
+            body {
+                background-color: #960404;
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            h1 {
+                color: #333;
+            }
+            header {
+                background-color: #291ab0;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .gallery-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+            .card {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                text-align: center;
+            }
+            footer {
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+               background-color: #291ab0;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>INTERACTIVE IMAGE GALLERY</h1>
+        </header>
+        <div class="gallery-container">
+            <div class="card">
+                <img id="galleryImage" src="https://images.unsplash.com/photo-1581091215367-59ab6b1c0c3b" alt="image">
+                <div class="caption" id="caption">3D Printing Lab</div>
+
+                <div class="buttons">
+                    <button onclick="prevImage()">Previous</button>
+                    <button onclick="nextImage()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p style="color: #fff; text-align: center; margin-top: 20px;">Dhyaneswar S 212225040078</p>
+        </footer>
+        <script>
+        const images = [
+            {
+                src: "https://images.unsplash.com/photo-1581091215367-59ab6b1c0c3b",
+                text: "3D Printing Lab"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1581090700227-1e8c0c9a6c3c",
+                text: "AI Robotics Lab"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1581093588401-22c8d2e3b7c0",
+                text: "Computer Lab"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1581091012184-5c4f5f2b7d3a",
+                text: "Engineering Workshop"
+            }
+        ];
+
+        let index = 0;
+
+        function showImage() {
+            document.getElementById("galleryImage").src = images[index].src;
+            document.getElementById("caption").innerText = images[index].text;
+        }
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            showImage();
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            showImage();
+        }
+        </script>
+    </body>
+</html>
